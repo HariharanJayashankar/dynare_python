@@ -1,0 +1,37 @@
+var Y C K A H B;
+
+varexo EPS NU;
+
+parameters beta rho alpha delta theta psi tau;
+
+beta=0.9926375361451396;
+rho=0.95;
+alpha=0.36;
+delta=0.025;
+theta=2.95;
+psi=0;
+tau=0.025;
+
+
+model;
+// Equation 0
+0 = (C * theta) * (H ^ (1 + psi)) - (1 - alpha) * Y;
+// Equation 1
+0 = (((C * (beta * exp(B))) / exp(B(1))) / C(1)) * (1 + ((alpha * exp(B(1))) * Y(1)) / K(1) - delta) - 1;
+// Equation 2
+0 = Y - (exp(A) * (K ^ alpha)) * (H ^ (1 - alpha));
+// Equation 3
+0 = K - (exp(B(-1)) * (Y(-1) - C(-1)) + (1 - delta) * K(-1));
+// Equation 4
+0 = A - (rho * A(-1) + B(-1) * tau + EPS);
+// Equation 5
+0 = B - (A(-1) * tau + B(-1) * rho + NU);
+end;
+initval;
+H=0.3003303024749624;
+A=0;
+Y=1.163346419284615;
+C=0.8403648173265564;
+K=12.91926407832234;
+B=0;
+end;
